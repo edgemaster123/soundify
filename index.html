@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Music Player</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="albums-container">
+            <div class="library-header">
+                <h2>Your Library</h2>
+                <button class="home-button" onclick="showHome()">
+                    <i class="fas fa-home"></i>
+                </button>
+            </div>
+            <div class="album" data-album="album1">
+                <img src="album1.jpg" alt="IGOR">
+                <div class="album-info">
+                    <h3>IGOR</h3>
+                    <p>Tyler, The Creator</p>
+                </div>
+            </div>
+            <div class="album" data-album="album2">
+                <img src="album2.jpg" alt="Die Lit">
+                <div class="album-info">
+                    <h3>Die Lit</h3>
+                    <p>Playboi Carti</p>
+                </div>
+            </div>
+            <div class="album" data-album="album3">
+                <img src="album3.jpg" alt="Graduation">
+                <div class="album-info">
+                    <h3>Graduation</h3>
+                    <p>Kanye West</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="tracklist-container">
+            <div class="default-message">
+                <h2>Soundify</h2>
+                <p>Select an album to view its tracks</p>
+                <i class="fas fa-music"></i>
+                <div class="credits-link">
+                    <span onclick="showCredits()">Credits</span>
+                </div>
+            </div>
+            
+            <div id="credits-modal" class="modal">
+                <div class="modal-content">
+                    <h2>Credits</h2>
+                    <p>Created by Eli Shehu</p>
+                    <p>Built with HTML, CSS, and JavaScript</p>
+                    <button onclick="hideCredits()" class="back-button">
+                        <i class="fas fa-arrow-left"></i> Back to Library
+                    </button>
+                </div>
+            </div>
+            
+            <div class="tracklist" id="album1-tracklist" style="display: none;">
+                <h2>IGOR Tracklist</h2>
+                <ul>
+                    <li data-src="album1/track1.mp3"><span class="track-number">1.</span> IGOR'S THEME</li>
+                    <li data-src="album1/track2.mp3"><span class="track-number">2.</span> EARFQUAKE</li>
+                    <li data-src="album1/track3.mp3"><span class="track-number">3.</span> I THINK</li>
+                </ul>
+            </div>
+            <div class="tracklist" id="album2-tracklist" style="display: none;">
+                <h2>Die Lit Tracklist</h2>
+                <ul>
+                    <li data-src="album2/track1.mp3"><span class="track-number">1.</span> R.I.P.</li>
+                    <li data-src="album2/track2.mp3"><span class="track-number">2.</span> Shoota</li>
+                    <li data-src="album2/track3.mp3"><span class="track-number">3.</span> Magnolia</li>
+                </ul>
+            </div>
+            <div class="tracklist" id="album3-tracklist" style="display: none;">
+                <h2>Graduation Tracklist</h2>
+                <ul>
+                    <li data-src="album3/track1.mp3"><span class="track-number">1.</span> Stronger</li>
+                    <li data-src="album3/track2.mp3"><span class="track-number">2.</span> Can't Tell Me Nothing</li>
+                    <li data-src="album3/track3.mp3"><span class="track-number">3.</span> Flashing Lights</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="player">
+            <div class="now-playing">
+                <img src="disc.png" alt="Now Playing" id="now-playing-img">
+                <div class="track-info">
+                    <h3 id="current-track">No track playing</h3>
+                    <p id="current-artist">Select a track</p>
+                </div>
+            </div>
+            
+            <div class="controls">
+                <div class="main-controls">
+                    <button id="prev-btn"><i class="fas fa-backward"></i></button>
+                    <button id="play-btn"><i class="fas fa-play"></i></button>
+                    <button id="next-btn"><i class="fas fa-forward"></i></button>
+                </div>
+                
+                <div class="progress-container">
+                    <span id="current-time">0:00</span>
+                    <div class="progress-bar">
+                        <div class="progress"></div>
+                    </div>
+                    <span id="duration">0:00</span>
+                </div>
+            </div>
+
+            <div class="volume-control">
+                <i class="fas fa-volume-up"></i>
+                <div class="volume-slider">
+                    <div class="volume-progress"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
